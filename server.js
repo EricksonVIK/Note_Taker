@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3001;
 const app = express ();
 
 // linking assets
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
 // data parsing -- JSON
 app.use(express.urlencoded({extended: true}));
