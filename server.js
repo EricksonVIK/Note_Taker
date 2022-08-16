@@ -37,5 +37,5 @@ app.get('/api/notes', (req, res) => {
 
 // chain listen method to server
 app.listen (3001, () => {
-    console.log(`API server is now on port 3001!`);
+    console.log(`API server is now on port ${PORT}!`);
 });
