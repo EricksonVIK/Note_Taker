@@ -5,8 +5,9 @@ const path = require ('path');
 const notes = require('./data/db.json')
 
 // setting up express server
-const app = express ();
 const PORT = process.env.PORT || 3001;
+
+const app = express ();
 
 // linking assets
 // app.use(express.static('public'));
