@@ -2,11 +2,18 @@
 const express = require ('express');
 const fs =require('fs');
 const path = require ('path');
+// note database
 const notes = require('./data/db.json')
+// npm uuid.v4 - random UUID (may try uuid.v1 - timestamp)
+const {v4 : uuidv4} = require('uuid')
+
+// potential id function
+// const idGen = function() {
+//     return Math.floor(Math.random() * 10000);
+// };
 
 // setting up express server
 const PORT = process.env.PORT || 3001;
-
 const app = express ();
 
 // linking assets
@@ -27,15 +34,26 @@ app.use(express.json());
 //     res.sendFile(path.join(__dirname, './public/notes.html'));
 // });
 
+// connect to data base (db)
 app.get('/api/notes', (req, res) => {
     // working -- used insomnia to pull upbody
     res.json(notes)
 })
 
+// add note -- works w insomnia
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
+    // user inputs
     res.json(req.body);
-});
+    // create new note with unique id
+    const newNote = ({
+        id: uuidv4(),
+        ...req.body
+    })
+    // push new note to database
+    notes.push(newNote);
+})
+
 
 
 
