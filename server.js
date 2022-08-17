@@ -5,7 +5,8 @@ const path = require ('path');
 // note database
 const notes = require('./data/db.json')
 // npm uuid.v4 - random UUID (may try uuid.v1 - timestamp)
-const {v4 : uuidv4} = require('uuid')
+const {v4 : uuidv4} = require('uuid');
+const { dirname } = require('path');
 
 // potential id function
 // const idGen = function() {
@@ -52,7 +53,14 @@ app.post('/api/notes', (req, res) => {
     })
     // push new note to database
     notes.push(newNote);
-})
+
+    // add new note to database\
+    fs.writeFileSync(
+        path.join(__dirname,'./data/db.json'),
+        JSON.stringify(notes, null, 2)
+    )
+    return notes;
+});
 
 
 
