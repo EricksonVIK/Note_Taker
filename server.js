@@ -24,16 +24,6 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-// load html 
-// app.get('*', function (req, res) {
-//     // res.send('does the server work?') -- Worked
-//     res.sendFile(path.join(__dirname, './public/index.html'));
-// });
-
-// // load notes html
-// app.get('/', function (req, res) {
-//     res.sendFile(path.join(__dirname, './public/notes.html'));
-// });
 
 // connect to data base (db)
 app.get('/api/notes', (req, res) => {
@@ -44,13 +34,19 @@ app.get('/api/notes', (req, res) => {
 // add note -- works w insomnia
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
-    // user inputs
-    res.json(req.body);
-    // create new note with unique id
-    const newNote = ({
-        id: uuidv4(),
-        ...req.body
-    })
+    // validate
+    // if (!validateNotes(req.body)) {
+    //     res.status(400).send('Note is not properly formatted.');
+    // }else {
+        // user inputs
+        res.json(req.body);
+
+        // create new note with unique id
+        const newNote = ({
+            id: uuidv4(),
+            ...req.body
+        })
+    // };
     // push new note to database
     notes.push(newNote);
 
@@ -58,10 +54,30 @@ app.post('/api/notes', (req, res) => {
     fs.writeFileSync(
         path.join(__dirname,'./data/db.json'),
         JSON.stringify(notes, null, 2)
-    )
+    );
     return notes;
 });
 
+function validateNotes(notes) {
+    if (!notes.name || typeof notes.name !=='string'){
+        return false;
+    }
+    if (!notes.text || typeof notes.text !== 'string'){
+        return false;
+    }
+    return true;
+}
+
+// load html 
+app.get('*', function (req, res) {
+    // res.send('does the server work?') -- Worked
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+// // load notes html
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, './public/notes.html'));
+});
 
 
 
