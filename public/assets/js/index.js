@@ -41,16 +41,16 @@ const saveNote = (note) =>
     },
     body: JSON.stringify(note),
   })
-    .then (response => {
-      if (response.ok){
-        return response.json()
-      }
-      alert ('error');
-  })
-    .then (postResponse => {
-      console.log(postResponse);
-      alert('Note added')
-    });
+  //   .then (response => {
+  //     if (response.ok){
+  //       return response.json()
+  //     }
+  //     alert ('error');
+  // })
+  //   .then (postResponse => {
+  //     console.log(postResponse);
+  //     alert('Note added')
+  //   });
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {

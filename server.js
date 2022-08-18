@@ -8,11 +8,6 @@ const notes = require('./data/db.json')
 const {v4 : uuidv4} = require('uuid');
 const { dirname } = require('path');
 
-// potential id function
-// const idGen = function() {
-//     return Math.floor(Math.random() * 10000);
-// };
-
 // setting up express server
 const PORT = process.env.PORT || 3001;
 const app = express ();
@@ -79,23 +74,38 @@ app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-app.delete('/api/notes:id', (req, res) => {
-  const id = parsInt(req.params.id)  
-  //filtering out every note that doesn't match the id 
-  const filterNotes = notes.filter(note => note.id !== id);
+app.delete('/api/notes/:id', (req, res) => {
+    for (let i = 0; i < notes.length; i++) {
 
-  fs.writeFileSync(
-    path.join(__dirname,'./data/db.json'),
-    JSON.stringify(notes, null, 2),
-    function (err) {
-        if (err){
-            console.log(err);
-        } else {
-            console.log('The note was deleted.')
+        if (notes[i].id == req.params.id) {
+            // Splice takes i position, and then deletes the 1 note.
+            notes.splice(i, 1);
+            break;
         }
     }
-  )
+    // Write the db.json file again.
+    fs.writeFileSync(
+        path.join(__dirname,'./data/db.json'), 
+        JSON.stringify(notes), 
+    );
+    res.json(notes)
 });
+//   const id = parsInt(req.params.id)  
+//   //filtering out every note that doesn't match the id 
+//   const filterNotes = notes.filter(note => note.id !== id);
+
+//   fs.writeFileSync(
+//     path.join(__dirname,'./data/db.json'),
+//     JSON.stringify(filterNotes, null, 2),
+//     function (err) {
+//         if (err){
+//             console.log(err);
+//         } else {
+//             console.log('The note was deleted.')
+//         }
+//     }
+//   )
+// });
     
 
 
