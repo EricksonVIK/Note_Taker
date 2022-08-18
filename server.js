@@ -58,29 +58,45 @@ app.post('/api/notes', (req, res) => {
     return notes;
 });
 
-function validateNotes(notes) {
-    if (!notes.name || typeof notes.name !=='string'){
-        return false;
-    }
-    if (!notes.text || typeof notes.text !== 'string'){
-        return false;
-    }
-    return true;
-}
+// function validateNotes(notes) {
+//     if (!notes.name || typeof notes.name !=='string'){
+//         return false;
+//     }
+//     if (!notes.text || typeof notes.text !== 'string'){
+//         return false;
+//     }
+//     return true;
+// }
 
-// load html 
+// load notes html
+app.get('/notes', function (req, res) {
+    res.sendFile(path.join(__dirname, './public/notes.html'));
+});
+
+// load html / for home page * -- catch all
 app.get('*', function (req, res) {
     // res.send('does the server work?') -- Worked
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-// // load notes html
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, './public/notes.html'));
+app.delete('/api/notes:id', (req, res) => {
+  const id = parsInt(req.params.id)  
+  //filtering out every note that doesn't match the id 
+  const filterNotes = notes.filter(note => note.id !== id);
+
+  fs.writeFileSync(
+    path.join(__dirname,'./data/db.json'),
+    JSON.stringify(notes, null, 2),
+    function (err) {
+        if (err){
+            console.log(err);
+        } else {
+            console.log('The note was deleted.')
+        }
+    }
+  )
 });
-
-
-
+    
 
 
 // chain listen method to server
