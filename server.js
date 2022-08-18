@@ -86,7 +86,7 @@ app.delete('/api/notes/:id', (req, res) => {
     // Write the db.json file again.
     fs.writeFileSync(
         path.join(__dirname,'./data/db.json'), 
-        JSON.stringify(notes), 
+        JSON.stringify(notes, null, 2), 
     );
     res.json(notes)
 });
