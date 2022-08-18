@@ -1,42 +1,12 @@
 [
   {
-    "id": "ef1d9ccd-f548-4339-b99a-9bbf0b9d29f9",
-    "title": "new testt",
-    "text": "testing delete"
+    "id": "d48691e8-122a-4498-bbba-31f703f3c9ae",
+    "title": "new",
+    "text": "adding new note"
   },
   {
-    "id": "1d9edffc-dd48-4506-98e7-ec5b558a80cc",
-    "title": "new testt",
-    "text": "testing delete"
-  },
-  {
-    "id": "0ca03246-7a28-417d-afa5-6c941503bd47",
-    "title": "new testt",
-    "text": "testing delete"
-  },
-  {
-    "id": "879c9767-770e-4d46-9cc6-ec1208c9457b",
-    "title": "new tests",
-    "text": "testing delete"
-  },
-  {
-    "id": "254ea78e-ce25-4bf2-a957-a9eff204be5e",
-    "title": "new tests",
-    "text": "testing delete"
-  },
-  {
-    "id": "efbf1769-6259-4bd1-b30e-28e5f3478447",
-    "title": "new tests",
-    "text": "testing delete"
-  },
-  {
-    "id": "9308518f-7dfd-4ada-8d24-75371435f9b5",
-    "title": "new tests",
-    "text": "testing delete"
-  },
-  {
-    "id": "fc9a9ca3-4efd-4efa-bdca-ce625ca96b4c",
-    "title": "new tests",
-    "text": "testing delete"
+    "id": "34a31d94-c3b7-4cca-939a-4d61d5181594",
+    "title": "source",
+    "text": "adding from another source"
   }
 ]
