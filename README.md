@@ -6,7 +6,7 @@
   ## Description 
   Welcome to Note-Taker.  This app allows the user to save and delete notes form the database at data/db.json.  The app utilizes nodejs in conjunction with expressjs with unique id's assigned via npm uuid version 4. App is hosted via </br>
   Heroku: https://whispering-escarpment-89419.herokuapp.com/ </br>
-  Sample video REPLACE W SAMPLEVIDEO
+  Sample video: https://drive.google.com/file/d/1H2P2dgAon9Q_g3kMJA4V1BcQukEF8NSQ/view
 
   ## Table of contents
   - [Usage](#usage)
