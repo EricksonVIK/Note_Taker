@@ -4,8 +4,9 @@
   ![](https://img.shields.io/github/languages/top/EricksonVIK/Note_Taker)
 
   ## Description 
-  Welcome to Note-Taker.  This app allows the user to save and delete notes.  The app utilizes nodejs in conjunction with expressjs with unique id's assigned via npmuuid version 4. App is hosted via Heroku: --- heroku link ---
-  Sample video -- link
+  Welcome to Note-Taker.  This app allows the user to save and delete notes form the database at data/db.json.  The app utilizes nodejs in conjunction with expressjs with unique id's assigned via npm uuid version 4. App is hosted via </br>
+  Heroku: https://whispering-escarpment-89419.herokuapp.com/ </br>
+  Sample video REPLACE W SAMPLEVIDEO
 
   ## Table of contents
   - [Usage](#usage)
@@ -15,7 +16,7 @@
   - [License](#license)
 
   ## Usage
-  Discuss dependencies
+  Dependencies include;
   - Node JS
   - npm uuid
   - express
