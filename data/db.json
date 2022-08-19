@@ -1,12 +1,17 @@
 [
   {
     "id": "d48691e8-122a-4498-bbba-31f703f3c9ae",
-    "title": "new",
-    "text": "adding new note"
+    "title": "Video",
+    "text": "create video for submission"
   },
   {
     "id": "34a31d94-c3b7-4cca-939a-4d61d5181594",
-    "title": "source",
-    "text": "adding from another source"
+    "title": "Link",
+    "text": "add link to readme"
+  },
+  {
+    "id": "01b20724-d1b3-4a59-876e-fa825178c1fa",
+    "title": "Demo",
+    "text": "Demonstration"
   }
 ]

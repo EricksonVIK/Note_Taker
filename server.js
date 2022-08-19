@@ -29,11 +29,6 @@ app.get('/api/notes', (req, res) => {
 // add note -- works w insomnia
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
-    // validate
-    // if (!validateNotes(req.body)) {
-    //     res.status(400).send('Note is not properly formatted.');
-    // }else {
-        // user inputs
         res.json(req.body);
 
         // create new note with unique id
@@ -41,8 +36,6 @@ app.post('/api/notes', (req, res) => {
             id: uuidv4(),
             ...req.body
         })
-    // };
-    // push new note to database
     notes.push(newNote);
 
     // add new note to database\
@@ -53,15 +46,6 @@ app.post('/api/notes', (req, res) => {
     return notes;
 });
 
-// function validateNotes(notes) {
-//     if (!notes.name || typeof notes.name !=='string'){
-//         return false;
-//     }
-//     if (!notes.text || typeof notes.text !== 'string'){
-//         return false;
-//     }
-//     return true;
-// }
 
 // load notes html
 app.get('/notes', function (req, res) {
@@ -90,24 +74,7 @@ app.delete('/api/notes/:id', (req, res) => {
     );
     res.json(notes)
 });
-//   const id = parsInt(req.params.id)  
-//   //filtering out every note that doesn't match the id 
-//   const filterNotes = notes.filter(note => note.id !== id);
-
-//   fs.writeFileSync(
-//     path.join(__dirname,'./data/db.json'),
-//     JSON.stringify(filterNotes, null, 2),
-//     function (err) {
-//         if (err){
-//             console.log(err);
-//         } else {
-//             console.log('The note was deleted.')
-//         }
-//     }
-//   )
-// });
     
-
 
 // chain listen method to server
 app.listen (PORT, () => {
